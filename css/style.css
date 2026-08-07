@@ -118,11 +118,9 @@ a { color: inherit; }
 
 .intro-mid { display: flex; flex-direction: column; gap: 1.6rem; align-items: flex-start; }
 
-.intro-monogram {
-  width: 76px; height: 76px; border-radius: 50%; background: var(--denim);
-  color: var(--paper); display: flex; align-items: center; justify-content: center;
-  font-family: Georgia, "Iowan Old Style", serif; font-size: 1.5rem; letter-spacing: 0.02em;
-  flex-shrink: 0;
+.intro-photo {
+  width: 84px; height: 84px; border-radius: 50%; object-fit: cover;
+  border: 1px solid rgba(246,245,242,0.25); flex-shrink: 0;
 }
 
 .intro-name {
