@@ -212,12 +212,28 @@ a { color: inherit; }
 .detail-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: transform 0.5s ease; }
 .detail-gallery button:hover img { transform: scale(1.03); }
 
-.film-embed {
-  width: 100%; aspect-ratio: 16/9; border: 1px solid var(--line); background: var(--ink);
-  display: flex; align-items: center; justify-content: center; margin-bottom: 3rem;
+.film-link {
+  width: 100%; aspect-ratio: 16/9; border: 1px solid var(--line); margin-bottom: 3rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+  background-size: cover; background-position: center; position: relative; text-decoration: none;
+  overflow: hidden;
 }
-.film-embed iframe { width: 100%; height: 100%; border: 0; }
-.film-embed .placeholder { color: var(--paper); font-size: 0.8rem; text-align: center; padding: 2rem; opacity: 0.7; }
+.film-link::before {
+  content: ""; position: absolute; inset: 0; background: rgba(28,28,28,0.42);
+  transition: background 0.3s ease;
+}
+.film-link:hover::before { background: rgba(28,28,28,0.55); }
+.film-link-play {
+  position: relative; z-index: 1; width: 64px; height: 64px; border-radius: 50%;
+  background: var(--paper); color: var(--ink); display: flex; align-items: center; justify-content: center;
+  transition: transform 0.25s ease;
+}
+.film-link-play svg { width: 24px; height: 24px; margin-left: 3px; }
+.film-link:hover .film-link-play { transform: scale(1.08); }
+.film-link-label {
+  position: relative; z-index: 1; color: var(--paper); font-size: 0.8rem; font-weight: 650;
+  letter-spacing: 0.04em;
+}
 
 .detail-nav { display: flex; justify-content: space-between; margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--line); font-size: 0.8rem; }
 .detail-nav button { background: none; border: none; cursor: pointer; font-family: var(--font); color: var(--ink); font-weight: 600; letter-spacing: 0.02em; }
