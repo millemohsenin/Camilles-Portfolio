@@ -11,7 +11,7 @@
   --denim: #3A5478;
   --sage: #6FA05A;
   --muted: #8a8578;
-  --intro-panel: #423E37;
+  --intro-panel: #3D5135; /* sage mixed 40% into near-black */
 
   --font: -apple-system, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
   --max: 1180px;
@@ -120,7 +120,7 @@ a { color: inherit; }
 .intro-mid { display: flex; flex-direction: column; gap: 1.6rem; align-items: flex-start; }
 
 .intro-photo {
-  width: 84px; height: 84px; border-radius: 50%; object-fit: cover;
+  width: 132px; height: 132px; border-radius: 50%; object-fit: cover;
   border: 1px solid rgba(246,245,242,0.25); flex-shrink: 0;
 }
 
