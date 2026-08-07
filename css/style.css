@@ -93,32 +93,87 @@ a { color: inherit; }
 }
 
 /* ---------------- intro ---------------- */
+/* Deliberately single-theme (ink panel stays dark, photo panel stays photo)
+   regardless of light/dark toggle -- this is a fixed editorial spread, not a themed page. */
 .intro-inner {
   min-height: 100vh;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  text-align: center; padding: 3rem var(--gutter);
+  display: grid; grid-template-columns: 1fr 1fr;
 }
+@media (max-width: 860px) {
+  .intro-inner { grid-template-columns: 1fr; }
+}
+
+.intro-panel-text {
+  background: var(--ink); color: var(--paper);
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 2.4rem clamp(1.5rem, 4vw, 3.5rem) 3rem;
+  min-height: 100vh;
+}
+@media (max-width: 860px) { .intro-panel-text { min-height: 62vh; } }
+
 .intro-eyebrow {
-  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--denim); margin: 0 0 1.6rem;
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--sage); margin: 0;
 }
+
+.intro-mid { display: flex; flex-direction: column; gap: 1.6rem; align-items: flex-start; }
+
+.intro-monogram {
+  width: 76px; height: 76px; border-radius: 50%; background: var(--denim);
+  color: var(--paper); display: flex; align-items: center; justify-content: center;
+  font-family: Georgia, "Iowan Old Style", serif; font-size: 1.5rem; letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.intro-name {
+  font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+  font-weight: 700; text-transform: uppercase; letter-spacing: -0.01em;
+  font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 0.98; margin: 0;
+  text-wrap: balance;
+}
+
+.intro-role-line {
+  font-size: 0.85rem; letter-spacing: 0.03em; color: var(--paper); opacity: 0.7;
+  margin: 0; font-weight: 400;
+}
+
 .intro-statement {
-  font-size: clamp(1.6rem, 4.4vw, 2.9rem); font-weight: 300; line-height: 1.28;
-  max-width: 42rem; margin: 0 0 1.4rem; text-wrap: balance;
+  font-family: Georgia, "Iowan Old Style", serif; font-style: italic; font-weight: 400;
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem); line-height: 1.5; color: var(--paper); opacity: 0.92;
+  max-width: 30rem; margin: 0; text-wrap: balance;
 }
-.intro-role {
-  font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--muted); font-weight: 600; margin: 0 0 3.2rem;
-}
+
 .intro-next {
-  background: none; border: 1px solid var(--line); cursor: pointer;
-  font-family: var(--font); font-size: 0.78rem; letter-spacing: 0.06em;
-  text-transform: uppercase; color: var(--ink); font-weight: 600;
-  padding: 0.85rem 1.6rem; display: inline-flex; align-items: center; gap: 0.6rem;
-  transition: border-color 0.25s ease, color 0.25s ease, gap 0.25s ease;
+  background: none; border: none; cursor: pointer; padding: 0;
+  font-family: var(--font); font-size: 0.75rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--paper); font-weight: 650;
+  display: inline-flex; align-items: center; gap: 0.6rem; align-self: flex-start;
+  transition: gap 0.25s ease, color 0.25s ease;
 }
-.intro-next:hover { border-color: var(--denim); color: var(--denim); gap: 0.9rem; }
+.intro-next:hover { gap: 0.95rem; color: var(--sage); }
 .intro-next svg { width: 14px; height: 14px; }
+
+.intro-panel-visual {
+  position: relative; min-height: 42vh; background-size: cover; background-position: center;
+}
+@media (min-width: 861px) { .intro-panel-visual { min-height: 100vh; } }
+
+.intro-contact {
+  position: absolute; top: 1.8rem; right: 1.8rem; display: flex; gap: 0.9rem;
+}
+.intro-contact a {
+  width: 36px; height: 36px; border-radius: 50%; background: rgba(28,28,28,0.4);
+  backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center;
+  color: var(--paper); transition: background 0.25s ease;
+}
+.intro-contact a:hover { background: rgba(28,28,28,0.65); }
+.intro-contact svg { width: 16px; height: 16px; }
+
+.intro-caption {
+  position: absolute; left: 1.8rem; bottom: 1.8rem; color: var(--paper);
+  font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase;
+  opacity: 0.85; text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
 
 /* ---------------- overview ---------------- */
 #view-overview {
