@@ -281,7 +281,7 @@ a { color: inherit; }
 
 .detail-body p { font-size: 0.98rem; line-height: 1.8; margin: 0 0 1.2rem; max-width: 38rem; }
 
-.stat-list { list-style: none; margin: 0; padding: 1.5rem 0 0; border-top: 1px solid var(--line); align-self: start; }
+.stat-list { list-style: none; margin: 0; padding: 0; align-self: start; }
 .stat-list li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid var(--line); font-size: 0.85rem; }
 .stat-list .stat-num { font-weight: 650; font-variant-numeric: tabular-nums; color: var(--denim); }
 .stat-list .stat-label { color: var(--muted); text-align: right; }
