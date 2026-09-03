@@ -1,4 +1,33 @@
 (() => {
+  const GATE_PASSWORD = "CMportfolio";
+  const gate = document.getElementById("gate");
+  const gateForm = document.getElementById("gate-form");
+  const gateInput = document.getElementById("gate-input");
+  const gateError = document.getElementById("gate-error");
+
+  function unlockGate() {
+    document.body.classList.remove("gate-locked");
+    gate.classList.add("is-hidden");
+  }
+
+  if (localStorage.getItem("cm_portfolio_unlocked") === "1") {
+    unlockGate();
+  }
+
+  gateForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (gateInput.value === GATE_PASSWORD) {
+      localStorage.setItem("cm_portfolio_unlocked", "1");
+      unlockGate();
+    } else {
+      gateError.textContent = "Incorrect password.";
+      gateInput.value = "";
+      gateInput.focus();
+    }
+  });
+})();
+
+(() => {
   const views = Array.from(document.querySelectorAll(".view"));
   const header = document.querySelector(".site-header");
   const navButtons = Array.from(document.querySelectorAll("[data-nav]"));
